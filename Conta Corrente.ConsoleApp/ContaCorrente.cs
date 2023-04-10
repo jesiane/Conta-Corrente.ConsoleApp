@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Conta_Corrente.ConsoleApp
 {
-    public class Conta
+    public class ContaCorrente
         {
             private int numero;
             private decimal saldo;
@@ -22,7 +22,7 @@ namespace Conta_Corrente.ConsoleApp
                 }
             }
 
-            public Conta(int numero, decimal saldo, bool ehEspecial, decimal limite)
+            public ContaCorrente(int numero, decimal saldo, bool ehEspecial, decimal limite)
             {
                 this.numero = numero;
                 this.saldo = saldo;
@@ -41,9 +41,9 @@ namespace Conta_Corrente.ConsoleApp
 
                 this.saldo += deposito;
                 this.movimentacoes.Add(new Movimentacao(deposito, "Crédito"));
-                return "Depósito sucedido!";
+                return "Depósito sucedido!"+saldo;
             }
-
+        
             public string RealizarSaque(decimal saque)
             {
                 if (saque > saldo + limite)
@@ -68,7 +68,7 @@ namespace Conta_Corrente.ConsoleApp
                 return true;
             }
 
-            public string RealizarTransferencia(Conta conta, decimal transferencia)
+            public string RealizarTransferencia(ContaCorrente conta, decimal transferencia)
             {
                 if (transferencia > saldo + limite)
                 {
